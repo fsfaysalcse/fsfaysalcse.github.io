@@ -516,13 +516,15 @@ section {
 
 .skills .progress-bar-wrap {
   background: #f2f3f5;
+  border-radius: 48px;
 }
 
 .skills .progress-bar {
   width: 1px;
-  height: 10px;
+  height: 15px;
   transition: 0.9s;
   background-color: #00796b;
+  border-radius: 48px;
 }
 
 /*--------------------------------------------------------------
