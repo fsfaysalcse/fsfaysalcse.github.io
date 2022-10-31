@@ -1,0 +1,695 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Taylor's Mobile</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/_/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="/_/vendor/font-awesome/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="/_/vendor/font-awesome/all.min.css" rel="stylesheet">
+    <link href="/_/vendor/font-awesome/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/_/vendor/jquery-fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+    <link href="/mobile/css/student/optima/style.css?r=1667247113" rel="stylesheet">
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-6035096-2', 'auto'); ga('send', 'pageview');  
+    </script>
+    
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            background-color: #fff;
+        }
+        html {
+            font-size: 10px;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        .btn {
+            display: inline-block; 
+            vertical-align: middle;
+            text-align: center;
+            margin-left: -5px;
+        }
+        .btn-small {
+            font-size: 9pt;
+            padding: 5pt;
+        }
+        .clear-btn {
+            border: none;
+            background: none;
+        }
+        .spacer5 {
+            height: 5px;
+            clear: both;
+        }
+        .spacer10 {
+            height: 10px;
+            clear: both;
+        }
+        .spacer15 {
+            height: 15px;
+            clear: both;
+        }
+        .text-center {
+            text-align: center;
+        }
+        button, input, optgroup, select, textarea {
+            margin: 0;
+            font: inherit;
+            color: inherit;
+        }
+
+        button.logout {
+            background-color: #da0009;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            width: 100%;
+        }
+        div.logout {
+            background-color: #da0009;
+            color: white;
+            text-align: center;
+        }
+
+        .profile-wrap .profile-detail {
+            width: 100%;
+        }
+
+        .profile-wrap .profile-detail .profile-name {
+            width: 86%;
+        }
+
+        .profile-wrap .profile-detail .logo-xs {
+            top: 0;
+            right: 0;
+        }
+        .right-hint {
+            float: right;
+            /*border: 1px solid red;
+            background-color: red;*/
+            color: white;
+            font-family: Arial;
+            padding: 3px 5px;
+            border-radius: 5px;
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .inline {
+            display: inline-block;
+        }
+
+        .view-digital-card-wrapper {
+            display: inline-block;
+            /*margin-left: 10pt;*/
+            vertical-align: top;
+            margin-top: 4pt;
+        }
+        /*.view-digital-card-wrapper button {
+            background: linear-gradient(to bottom, #f85032 0%,#e8484f 30%,#da2d34 34%,#ac1015 100%);
+            color: white;
+            border-radius: 15pt;
+            padding: 4pt 13pt;
+        }*/
+        .student-id {
+            display: inline-block;
+        }
+        /* .fa:before {
+            content: "\f067";
+            color: #999;
+        } */
+
+        .vac-status {
+            padding: 2pt 6pt;
+        }
+
+        .vac-status-nv {
+            /* background-color: #f7ba4a;  */
+            /* background-color: #fbca72; */
+        }
+
+        .vac-status-pv {
+            /* background-color: #d1fb8e; */
+        }
+
+        .vac-status-fv {
+            background-color: #fed778; 
+            /* background-color: #4acff7;  */
+        }
+
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="/_/vendor/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/_/vendor/modernizr/modernizr.js"></script>
+    <script type="text/javascript" src="/_/vendor/detectizr/detectizr.js"></script>
+  </head>
+
+  <body class="dashboard">
+
+    <div class="content">
+        <div class="profile-wrap">
+            <!-- <div class="profile-img">
+                <div class="img-wrap"><img src="/mobile/images/optima/student/Male_DefaultImage.png" class="img-responsive"></div>
+            </div> -->
+            <div class="profile-detail">
+                <!-- For Test -->
+                <!-- <div class="profile-name"><span id="fldName">John Appleseed</span></div>
+                <div class="student-id">Student ID <br/><span id="fldStudentID">12345678</span></div>
+                <div class="spacer10"></div>
+                <div>Programme <br/><span id="fldProgramme">Bachelor in Arts</span></div> -->
+
+                <!-- Actual -->
+                <div class="profile-name"><span id="fldName">FAYSAL HOSSAIN</span></div>
+                <div class="student-id">Student ID <br/>
+                    <span id="fldStudentID">0357986</span> &nbsp;  &nbsp; <a onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/qr-student-id'), 'Student ID', 'mbc.taylors.edu.my')"><i class="fa fa-qrcode" aria-hidden="true"></i> <span style="font-size: 6pt; color: red; font-weight: 300; vertical-align: middle;">Tap for QR</span></a> 
+                </div>
+                <div></div>
+                <div class="spacer10"></div>
+                <div>Programme <br/><span id="fldProgramme">American Degree Transfer Program (Computer Science)</span></div>
+
+                <!-- to be deleted -->
+                <!-- <div class="logo-xs"><img src="/mobile/images/optima/student/logo-xs.png"></div> -->
+
+                <!-- Test -->
+                <!-- <div class="spacer10"></div>
+                                <div>Official Email <br/><span id="fldProgramme">john.appleseed@email.com</span></div>
+                                <div class="logo-xs"><img src="/mobile/images/optima/student/logo-xs.png"></div> -->
+
+                <!-- Actual -->
+                <div class="spacer10"></div>
+                                <div>Official Email <br/><span id="fldProgramme" style="overflow-wrap: break-word">faysal.hossain@sd.taylors.edu.my</span></div>
+                                <div class="spacer10"></div>
+                <div class="spacer10"></div>
+
+                <div>Contact Information <button class="clear-btn" onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/profile/'), 'Contact Information', 'portals.taylors.edu.my')"><i class="fas fa-user-edit"></i></button></div>
+
+                <div class="spacer10"></div>
+
+                <div>Vaccination Status 
+                    <span id="lblVacStatus_NV" class="vac-status vac-status-nv hidden">Not Vaccinated</span> 
+                    <span id="lblVacStatus_AV" class="vac-status vac-status-nv hidden">Awaiting Vaccination</span> 
+                    <span id="lblVacStatus_PV" class="vac-status vac-status-pv hidden">Partially Vaccinated</span> 
+                    <span id="lblVacStatus_FV" class="vac-status vac-status-fv hidden">Fully Vaccinated</span> 
+                    
+                    <button class="clear-btn" onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/vaccination/vaccination-status-view'), 'Vaccination Status', 'portals.taylors.edu.my')"><i class="fas fa-user-edit"></i></button></div>
+
+                <!-- <div>Contact Information
+
+                    <div class="spacer5"></div>
+                    <div style="font-size: 10pt; font-weight: bold">
+                        <div>Current Location  &nbsp; &nbsp; &nbsp;&nbsp;<button class="clear-btn" onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/profile/address'), 'Current Location', 'mbc.taylors.edu.my')"><i class="fas fa-eye"></i></button> &nbsp;<button class="clear-btn" onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/profile/address-update'), 'Current Address', 'mbc.taylors.edu.my')"><i class="fas fa-user-edit"></i></button></div>
+                        <div class="spacer5"></div>
+                        <div>Personal Email<span style="font-size: 11pt"> &nbsp;  &nbsp;   &nbsp;  &nbsp; </span><button class="clear-btn" onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/profile/email'), 'Personal Email', 'mbc.taylors.edu.my')"><i class="fas fa-eye"></i></button> &nbsp;<button class="clear-btn" onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/profile/email-update'), 'Email', 'mbc.taylors.edu.my')"><i class="fas fa-user-edit"></i></button></div>
+                        <div class="spacer5"></div>
+                        <div>Mobile No. &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;   &nbsp; <button class="clear-btn" onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/profile/contact'), 'Mobile Number', 'mbc.taylors.edu.my')"><i class="fas fa-eye"></i></button> &nbsp;<button class="clear-btn" onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/profile/contact-update'), 'Mobile Number', 'mbc.taylors.edu.my')"><i class="fas fa-user-edit"></i></button></div>
+                    </div>
+                </div> -->
+                <div class="spacer10"></div>
+                <div class="spacer10"></div>
+
+                <!-- <div>Your Contact Info <br/><span style="overflow-wrap: break-word"><button class="btn btn-default btn-small"><i class="fa fa-phone" aria-hidden="true"></i> Phone Number</button></span> &nbsp; <span style="overflow-wrap: break-word"><button class="btn btn-default btn-small"><i class="fa fa-map-marker" aria-hidden="true"></i> Current Address</button></span> &nbsp; <span style="overflow-wrap: break-word"><button class="btn btn-default btn-small"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> Email</button></span></div>
+
+                <div class="spacer10"></div> -->
+
+                <!-- <div>
+                    <a>Address &amp; Contact No. <span class="exp"><i class="fa" aria-hidden="true"></i></span></a>
+                </div>-->
+
+                <!-- <div>Contact Information</div> -->
+                <!-- <div><button class="btn btn-default" onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/card'), 'Student Card', 'portals.taylors.edu.my')">Contact No.</button></div> -->
+                <!-- <div><span>Contact No.</span> &nbsp; <span>Personal Email</span> &nbsp; <span>Current Address</span> -->
+                <!-- <div onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/profile/address'), 'Address', 'mbc.taylors.edu.my')">Profile <i class="fas fa-user-edit"></i> </div> -->
+                <!-- <div class="spacer10"></div> -->
+
+                <!-- <div onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/profile/address'), 'Address', 'mbc.taylors.edu.my')">Address <i class="fas fa-user-edit"></i> </div>
+                <div class="spacer10"></div>-->
+
+                <!-- <div>
+                    <span onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/profile/contact'), 'Contact Number', 'mbc.taylors.edu.my')">Contact No. <i class="fas fa-user-edit"></i> </span>
+                    <br/> -->
+                    <!-- <div class="spacer10"></div> -->
+                    <!-- <span onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/profile/email'), 'Email', 'mbc.taylors.edu.my')">Email <i class="fas fa-user-edit"></i> </span>
+                    <div class="spacer10"></div>
+                </div> -->
+                <!-- <div class="logo-xs"><img src="/mobile/images/optima/student/logo-xs.png"></div>  -->
+
+                <!-- not yet used -->
+                <div class="view-digital-card-wrapper"><button class="btn btn-default" onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/card'), 'Student Card', 'portals.taylors.edu.my')">Student Card</button></div>
+                <div style="float: right">
+                    <a onclick="window.location.reload()" style="margin-left: 0px;">
+                        <img style="width: 18px; vertical-align: top;" src="/mobile/images/refresh-icon.png" />
+                    </a>
+                </div>
+                <!-- <div class="view-digital-card-wrapper">Student Card <br/><button class="btn btn-default btn-small" onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/card'), 'Student Card', 'portals.taylors.edu.my')"><i class="fa fa-id-badge" aria-hidden="true"></i> Display</button></div>
+                <div style="float: right">
+                    <a onclick="window.location.reload()" style="margin-left: 0px;">
+                        <img style="width: 18px; vertical-align: top;" src="/mobile/images/refresh-icon.png" />
+                    </a>
+                </div> -->
+            </div>
+
+            <!-- <div class="" style="right: 0; position: absolute;"><a onclick="refreshScreen()" style="position: relative; margin-left: 15px; padding: 5px;"><img style="width: 30px; height: 30px" src="/mobile/images/refresh-icon.png" /></a></div>
+            <div class="" style="height: 10px;"></div> -->
+
+            <div class="clearfix"></div>
+            <!-- <div class="spacer20"></div> -->
+            <!-- <div class="course-detail">
+                <ul>
+                    <li>Programme: <span id="fldProgramme"></span></li> -->
+                    <!-- <li>Campus: <span id="fldCampus"></span></li> -->
+                <!-- </ul> -->
+                <!-- <div class="edit"><a onclick="pushViewController_forStudentDashboard('/mobile/student/profile')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div> -->
+            <!-- </div> -->
+        </div>
+        
+
+        <!-- <div class="resultWrap">
+            <div class="bxWrapper">
+                <div class="icon-wrap"><img src="/mobile/images/covid-icon.png" style="width: 20pt"></div>
+                <div class="content-wrap">
+                    <div class="title">COVID-19 Advisory</div>
+                    <a onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/covid-chat/'), 'COVID-19 Advisory', 'mbc.taylors.edu.my')" class="btn btn-default">CARE Chatbot</a>
+                </div>
+            </div>
+        </div> -->
+
+                
+        <div class="resultWrap">
+            <div class="bxWrapper">
+                <div class="icon-wrap"><img src="/mobile/images/optima/icon-msg.png" style="width: 20pt"></div>
+                <div class="content-wrap">
+                    <div class="title">Notifications</div>
+                                        <div>You have <span style="font-weight: bold">11</span> unread notifications</div>
+                                        <a onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/messages/'), 'Notifications', 'portals.taylors.edu.my')" class="btn btn-default">View</a>
+                     &nbsp;
+                </div>
+            </div>
+        </div>
+
+        <div class="resultWrap">
+            <div class="bxWrapper">
+                <div class="icon-wrap"><img style="width:25px; height:25px" src="/mobile/images/optima/student/class.png"></div>
+                <div class="content-wrap">
+                    <div class="title">Timetable</div>
+                    <a onclick="pushNewVC(mbc.env.withExtBasePath('PORTAL_URL','/portal/mobile/timetable.jsp'), 'Timetable', 'portals.taylors.edu.my')" class="btn btn-default">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="attendanceWrap">
+            <div class="bxWrapper">
+                <div class="icon-wrap"><img src="/mobile/images/classroom-lecturer-teach.png" style="width: 20pt"></div>
+                <div class="content-wrap">
+                    <div class="title">Attendance Marking</div>
+                    <a onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/attendance/'), 'Attendance Marking', 'portals.taylors.edu.my')" class="btn btn-default">Enter</a>
+                     &nbsp;
+                    <a onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/attendance/history'), 'Attendance Marking History', 'portals.taylors.edu.my')" class="btn btn-default">History</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="feesWrap">
+            <div class="bxWrapper">
+                <div class="icon-wrap"><img src="/mobile/images/optima/student/icon-fees.png"></div>
+                <div class="content-wrap">
+                                        <div class="right-hint" onclick="pushNewVC(mbc.env.withExtBasePath('PORTAL_URL','/portal/mobile/fees.jsp'), 'Fees', 'portals.taylors.edu.my')"><img style="height: 35pt;" src="/mobile/images/taylors-pay-128.png" /></div>
+                                        <div class="title">Fees <!-- <span class="info"><i class="fa fa-check-circle" aria-hidden="true"></i> Paid</span> --></div>
+                    <div id="outstandingRefresh" class="hidden">Refreshing outstanding fees...</div>
+                    <div id="outstandingSection" class="hidden">
+                        <div>Outstanding academic fee: RM <span id="outstandingAmountValue"></span></div> <!-- 1,512.00 -->
+                        <div style="font-size: 9pt">As at <span id="outstandingDateTime"></span></div>  <!-- 4-Apr-2022 21:40 -->
+                        <div id="paySoonMessage" class="hidden" style="color:red; font-size: 9pt">Please pay as soon as possible to avoid disruption to your TIMeS, email and other accounts.</div>
+                    </div>
+                    <a onclick="refreshOutstandingAmount()" class="btn btn-default hidden" id="btnRefreshOutstanding">Refresh</a> &nbsp; 
+                    <a onclick="pushNewVC(mbc.env.withExtBasePath('PORTAL_URL','/portal/mobile/fees.jsp'), 'Fees', 'portals.taylors.edu.my')" class="btn btn-default">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="resultWrap">
+            <div class="bxWrapper">
+                <div class="icon-wrap"><img src="/mobile/images/optima/student/icon-result-xs.png"></div>
+                <div class="content-wrap">
+                    <div class="title">Academic Result</div>
+                    <a onclick="pushNewVC(mbc.env.withExtBasePath('PORTAL_URL','/portal/mobile/academic-results.jsp'), 'Academic Results', 'portals.taylors.edu.my')" class="btn btn-default">View</a>
+                </div>
+            </div>
+        </div>
+
+         
+        <div class="podWrap">
+            <div class="bxWrapper">
+                <div class="icon-wrap"><img src="/mobile/images/pod-icon.png" width="30px" /></div>
+                <div class="content-wrap">
+                    <div class="title">Print On Demand</div>
+                    <div class="podContent" style="font-size: 14px; padding-top: 10px;">
+                        <div id="podBalanceValue" class="inline hidden">Your balance is RM<span id="fldPODBalance"></span></div>
+                        <div id="podBalanceCheckMsg" class="inline hidden">Checking balance...</div>
+                        <div id="podBalanceErrorMsg" class="inline hidden"></div>
+                        <!-- <div class="inline" id="refreshPODBalanceContainer">
+                            <a onclick="fetchPODBalance()" style="margin-left: 0px;">
+                                <img style="width: 18px; vertical-align: top;" src="/mobile/images/refresh-icon.png" />
+                            </a>
+                        </div> -->
+                    </div>
+                    <!-- <a onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/pod/pod-login'), 'Print On Demand', 'portals.taylors.edu.my')" class="btn btn-default">POD Account</a> -->
+
+                    <a onclick="fetchPODBalance()" class="btn btn-default">Check Balance</a> &nbsp; <a onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/pod/pod-login'), 'Print On Demand', 'portals.taylors.edu.my')" class="btn btn-default" style="width: 120pt">POD Account</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <div class="podWrap">
+            <div class="bxWrapper">
+                <div class="icon-wrap"><img src="/mobile/images/pod-icon.png" width="30px" /></div>
+                <div class="content-wrap">
+                    <div class="title">Print On Demand</div>
+                    <div class="podContent" style="font-size: 14px; padding-top: 10px;">
+                        <div id="podBalanceValue" class="inline hidden">Your balance is RM<span id="fldPODBalance"></span></div>
+                        <div id="podBalanceCheckMsg" class="inline hidden">Checking balance...</div>
+                        <div id="podBalanceErrorMsg" class="inline hidden"></div>
+                        <div class="inline" id="refreshPODBalanceContainer"><a onclick="fetchPODBalance()" style="margin-left: 0px;"><img style="width: 18px; vertical-align: top;" src="/mobile/images/refresh-icon.png" /></a></div>
+                    </div>
+                    <a onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/pod'), 'Print On Demand', 'portals.taylors.edu.my')" class="btn btn-default">FAQ</a>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- <div>
+            <a onclick="openLink('http://campuscentral.taylors.edu.my/Page/OnlinePaymentGatewayFAQ.aspx')">FAQ</a>
+        </div> -->
+
+                            <div class="moduleWrap">
+                <div class="bxWrapper">
+                    <div class="icon-wrap"><img src="/mobile/images/optima/student/icon-module.png"></div>
+                    <div class="content-wrap">
+                        <div class="title">Online Module Registration</div>
+                        <a onclick="smartOpenLink('https://campuscentral.taylors.edu.my/Module/SitePages/Home.aspx')" class="btn btn-default">Register</a> 
+                        &nbsp; 
+                        <a onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/online-module/selected-module'), 'Registered Modules (Beta)', 'portals.taylors.edu.my')" class="btn btn-default">Registered Modules</a>
+                    </div>
+                </div>
+            </div>
+        
+        <div class="moduleWrap">
+            <div class="bxWrapper">
+                <div class="content-wrap">
+                    <div class="icon-wrap"><img src="/mobile/images/times-logo-2.png" style="width:30pt;"></div>
+                    <div class="title">myTIMeS</div>
+                    <!-- <a onclick="smartOpenLink('https://times.taylors.edu.my/')" class="btn btn-default">Open</a> &nbsp;  -->
+                    <a onclick="openAppOrStore('moodlemobile://', 'https://apps.apple.com/my/app/taylors-mytimes/id1625523400','com.modernlms.mytimes', 'https://play.google.com/store/apps/details?id=com.modernlms.mytimes')" class="btn btn-default">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="moduleWrap">
+            <div class="bxWrapper">
+                <div class="content-wrap">
+                    <div class="icon-wrap"><img src="/mobile/images/microsoft-teams-logo.png" style="width:30pt;"></div>
+                    <div class="title">TEAMS</div>
+                    <!-- <a onclick="pushNewVC('https://teams.microsoft.com/', 'TEAMS', 'mbc.taylors.edu.my')" class="btn btn-default">Open</a> -->
+                    <a onclick="openStore('https://play.google.com/store/apps/details?id=com.microsoft.teams','https://apps.apple.com/my/app/microsoft-teams/id1113153706')" class="btn btn-default">Open</a> 
+                     &nbsp; 
+                    <a onclick="pushNewVC(mbc.env.withLocalBasePath('/mobile/student/teams/user-guide'), 'User Guide', 'portals.taylors.edu.my')" class="btn btn-default">User Guide</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="logout"><button class="logout" onclick="window.location='/mobile/student/logout'">Logout</button></div>
+    </div>
+
+    <footer>
+        <div class="text-center copyright">
+            &copy; 2022 Taylor’s Education Group. All right reserved.
+        </div>
+        <div style="text-align: center; font-size: 12px"> 
+                    </div>
+    </footer>   
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>-->
+    <script src="/_/js/mobile/mbc.env.js?v=54"></script>
+    <script src="/_/js/util/util.js?v=54"></script>
+    <script src="/_/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/_/vendor/ie10-viewport/ie10-viewport-bug-workaround.js"></script>
+    <script src="/_/vendor/jquery-mousewheel/jquery.mousewheel.js" type="text/javascript"></script>
+    <script src="/_/vendor/jquery-fancybox/jquery.fancybox.js"></script>
+    <script src="/_/vendor/matchheight/matchheight.js" type="text/javascript"></script>
+    <!--<script src="/mobile/js/student/optima/custom.js" type="text/javascript"></script>-->
+
+    <script>
+        function openLink(link) {
+            try {
+                if (typeof(jsi_openAppWithScheme) != 'undefined'){  jsi_openAppWithScheme(link, link); }
+                if (typeof(jsi_openURLExternally) != 'undefined'){  jsi_openURLExternally(link); }
+            } catch (err) {}
+        }
+
+        function openAppOrStore(iosAppLink, iosStoreLink, androidAppLink, androidStoreLink) {
+            var os = "";
+            if (typeof MApp != 'undefined'){ if (MApp.getDeviceOS()==MApp.deviceOS.android) { os="android"; } }
+            if (typeof App != 'undefined'){ if (App.getDeviceOS()==App.deviceOS.ios) { os="ios"; } }
+            if (os == "android") {
+                if (typeof(jsi_openAppPackageOrURL) != 'undefined'){  jsi_openAppPackageOrURL(androidAppLink, androidStoreLink); }
+            }
+            if (os == "ios") {
+                if (typeof(jsi_openAppWithScheme) != 'undefined'){  jsi_openAppWithScheme(iosAppLink, iosStoreLink); }
+            }
+        }
+
+        function openStore(androidLink, iosLink) {
+            var os = "";
+            if (typeof MApp != 'undefined'){ if (MApp.getDeviceOS()==MApp.deviceOS.android) { os="android"; } }
+            if (typeof App != 'undefined'){ if (App.getDeviceOS()==App.deviceOS.ios) { os="ios"; } }
+            if (os == "android") {
+                smartOpenLink(androidLink);
+            }
+            if (os == "ios") {
+                smartOpenLink(iosLink);
+            }
+        }
+
+        function smartOpenLink(link) {
+            try {
+                if (typeof(jsi_openAppWithScheme) != 'undefined'){  jsi_openAppWithScheme(link, link); }
+                if (typeof(jsi_openURLExternally) != 'undefined'){  jsi_openURLExternally(link); }
+              } catch ($e) {}
+        }
+
+        function refreshScreen() {
+            document.location.reload();
+        }
+
+        function fetchOutstandingAmount() {
+            $.ajax({
+                type:"GET", 
+                url: "/api/mobile/1.0/fees/outstanding-amount",
+                success: function(data) {
+                    try {
+                        var outstandingAmount = data.outstandingAmount;
+                        var outstandingDateTime = data.datetime;
+                        // console.log(outstandingAmount)
+                        if (outstandingAmount <= 0) return
+                        outstandingAmount = parseFloat(outstandingAmount).toFixed(2)
+                        outstandingAmount = outstandingAmount.toLocaleString()
+                        $("#outstandingAmountValue").html(outstandingAmount)
+                        $("#outstandingDateTime").html(outstandingDateTime)
+                        $("#outstandingSection").removeClass("hidden")
+                        // if (outstandingAmount > 300) {
+                        //     $("#paySoonMessage").removeClass("hidden")
+                        // }
+                        $("#btnRefreshOutstanding").removeClass("hidden")
+                    } catch (err) {
+                        console.log(err)
+                    }
+                }, 
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown)
+                },
+               dataType: "json"
+            });
+        }
+
+        function refreshOutstandingAmount() {
+            $("#outstandingRefresh").removeClass("hidden")
+            $("#outstandingSection").addClass("hidden")
+            $.ajax({
+                type:"GET", 
+                url: "/api/mobile/1.0/fees/refresh-outstanding-amount",
+                success: function(data) {
+                    try {
+                        $("#outstandingRefresh").addClass("hidden")
+                        var outstandingAmount = data.outstandingAmount;
+                        var outstandingDateTime = data.datetime;
+                        outstandingAmount = parseFloat(outstandingAmount).toFixed(2)
+                        outstandingAmount = outstandingAmount.toLocaleString()
+                        $("#outstandingAmountValue").html(outstandingAmount)
+                        $("#outstandingDateTime").html(outstandingDateTime)
+                        $("#outstandingSection").removeClass("hidden")
+                        // if (outstandingAmount > 300) {
+                        //     $("#paySoonMessage").removeClass("hidden")
+                        // }
+                    } catch (err) {
+                        console.log(err)
+                    }
+                }, 
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $("#outstandingRefresh").addClass("hidden")
+                    console.log(errorThrown)
+                },
+               dataType: "json"
+            });
+        }
+
+        function fetchPODBalance() {
+            $("#podBalanceErrorMsg").addClass("hidden");
+            $("#podBalanceValue").addClass("hidden");
+            $("#podBalanceCheckMsg").removeClass("hidden");
+            $("#refreshPODBalanceContainer").addClass("hidden");
+
+            $.ajax({
+                type:"GET", 
+                url: "/api/mobile/1.0/student/pod/get-balance", 
+                success: function(data) {
+                    $("#refreshPODBalanceContainer").removeClass("hidden");
+                    try {
+                        var podBalance = data.balance;
+                        if (typeof(podBalance) == 'undefined') {
+                            throw "Opss an error occurred";
+                        }
+                        if (podBalance == null) {
+                            throw "Opss an error occurred";
+                        }
+                        $("#fldPODBalance").html(podBalance);
+                        $("#podBalanceValue").removeClass("hidden");
+                        $("#podBalanceCheckMsg").addClass("hidden");
+                        $("#podBalanceErrorMsg").addClass("hidden");
+                    } catch (err) {
+                        $("#podBalanceErrorMsg").removeClass("hidden");
+                        $("#podBalanceValue").addClass("hidden");
+                        $("#podBalanceCheckMsg").addClass("hidden");
+                        $("#podBalanceErrorMsg").html("Unable to check balance due to an error. Please try to login again.");
+                    }
+                        // $("body").append(JSON.stringify(data));
+                }, 
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $("#refreshPODBalanceContainer").removeClass("hidden");
+                    $("#podBalanceErrorMsg").removeClass("hidden");
+                    $("#podBalanceValue").addClass("hidden");
+                    $("#podBalanceCheckMsg").addClass("hidden");
+                    $("#podBalanceErrorMsg").html("Unable to check balance. Please check your connection and try again later.");
+                },
+               dataType: "json"
+            });
+
+            // $.ajax({
+            //     type:"GET", 
+            //     url: "/api/portals/1.0/auth", 
+            //     success: function(data) {
+            //         $("#refreshPODBalanceContainer").removeClass("hidden");
+            //         try {
+            //             var podBalance = data.podBalance;
+            //             if (typeof(podBalance) == 'undefined') {
+            //                 throw "Opss an error occurred";
+            //             }
+            //             $("#fldPODBalance").html(podBalance);
+            //             $("#podBalanceValue").removeClass("hidden");
+            //             $("#podBalanceCheckMsg").addClass("hidden");
+            //             $("#podBalanceErrorMsg").addClass("hidden");
+            //         } catch (err) {
+            //             $("#podBalanceErrorMsg").removeClass("hidden");
+            //             $("#podBalanceValue").addClass("hidden");
+            //             $("#podBalanceCheckMsg").addClass("hidden");
+            //             $("#podBalanceErrorMsg").html("Unable to check balance due to an error. Please try to login again.");
+            //         }
+            //             // $("body").append(JSON.stringify(data));
+            //     }, 
+            //     error: function(jqXHR, textStatus, errorThrown) {
+            //         $("#refreshPODBalanceContainer").removeClass("hidden");
+            //         $("#podBalanceErrorMsg").removeClass("hidden");
+            //         $("#podBalanceValue").addClass("hidden");
+            //         $("#podBalanceCheckMsg").addClass("hidden");
+            //         $("#podBalanceErrorMsg").html("Unable to check balance. Please check your connection and try again later.");
+            //     },
+            //    dataType: "json"
+            // });
+        }
+
+        function getVaccinationStatus() {
+            $.ajax({
+                url:"/api/mobile/1.0/student/vaccination/get-vaccination-detail",
+                type:"POST",
+                data: null,
+                success: function(result){
+                    try {
+                        if (result["vaccinationDetail"].length == 0){
+                            $("#lblVacStatus_NV").removeClass("hidden");
+                            return;
+                        }
+
+                        var d = result["vaccinationDetail"][0];
+
+                        var vaccinationStatus = d["VaccinationStatus"];
+
+                        $("#lblVacStatus_"+vaccinationStatus).removeClass("hidden");
+
+                    } catch (err) {   
+                    }
+                },
+                error: function(){
+                }
+            });
+        }
+
+        $("document").ready(function(){
+            // fetchPODBalance();            
+
+            getVaccinationStatus();
+            fetchOutstandingAmount();
+
+            if ($(".entry-campus-btn").length <= 0) { 
+                $(".entry-campus-qmark").css("margin-top", "0"); 
+            }
+
+        })
+
+        setTimeout(function(){
+            if (typeof jsi_markLogin != "undefined") {
+                jsi_markLogin();
+            }
+        }, 5000);
+    </script>
+
+      </body>
+</html>
