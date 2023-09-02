@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="p-5">
+
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <input type="text" id="data" class="form-control" placeholder="Enter data for QR Code..." onkeyup="handleKeyPress(event)">
+            </div>
+            <div class="col-md-4">
+                <button onclick="generateQRCode()" class="btn btn-primary w-100">Generate QR Code</button>
+            </div>
+        </div>
+
+        <div class="row" id="qrCodeContainer" style="display: none;">
+            <div class="col-md-12 text-center">
+                <h3>Your QR Code:</h3>
+                <img id="qrCodeImage" alt="Generated QR Code will appear here." width="300" height="300" class="img-thumbnail">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleKeyPress(event) {
+            if (event.keyCode === 13) {
+                generateQRCode();
+            }
+        }
+
+        function generateQRCode() {
+            const data = document.getElementById('data').value;
+            const imageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(data)}`;
+            document.getElementById('qrCodeImage').src = imageUrl;
+            document.getElementById('qrCodeContainer').style.display = "block";
+        }
+    </script>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
