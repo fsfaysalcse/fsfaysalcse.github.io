@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Participant Info</title>
+
+    <!-- Adding Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Adding Google Product Sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Background Image -->
+    <div class="background-image"></div>
+
+    <div class="container mt-5">
+        <!-- Big Title -->
+        <div class="text-center mb-5">
+            <h1 class="main-title">FIT Malaysia Peringkat Kebangsaan 2023</h1>
+        </div>
+
+        <div class="row">
+            <!-- Left Side: Participant Info -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Participants</h5>
+                        <h2 id="participantInfo" class="display-4"></h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Checkout Info -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Checkouts</h5>
+                        <h2 id="levelCount" class="display-4"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Powered By Section -->
+    <div class="powered-by-section text-center">
+        <span id="liveClock" class="mr-2"></span>
+        <p class="mb-0">Powered By <span class="font-weight-bold">HeyJom</span></p>
+    </div>
+
+    <!-- Including Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <script>
+        function updateClock() {
+            let now = new Date();
+            let hours = String(now.getHours()).padStart(2, '0');
+            let minutes = String(now.getMinutes()).padStart(2, '0');
+            let seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('liveClock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateClock, 1000); // Update the clock every second
+        updateClock(); // Call immediately to set the time without waiting for the first second
+    </script>
+
+</body>
+
+</html>
