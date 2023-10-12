@@ -76,5 +76,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
     fetchData();
 
-    setInterval(fetchData, 1000);
+    setInterval(fetchData, 6000);
 });
