@@ -9,7 +9,7 @@ body, h1, h2, h5 {
     height: 100%;
     width: 100%;
     z-index: -1;
-    background-image: url('https://images.unsplash.com/photo-1574310886178-20688c28aeb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2944&q=80');
+    background-image: url('https://images.unsplash.com/photo-1647686543959-fb1974055cd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2874&q=80');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -34,7 +34,7 @@ body, h1, h2, h5 {
 
 #liveClock {
     font-size: 1.5rem;  /* Adjust the size as per your preference */
-    color: rgb(87, 202, 240);
+    color: rgb(240, 87, 87);
 }
 
 .powered-by-section {

@@ -59,20 +59,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-    <script>
-        function updateClock() {
-            let now = new Date();
-            let hours = String(now.getHours()).padStart(2, '0');
-            let minutes = String(now.getMinutes()).padStart(2, '0');
-            let seconds = String(now.getSeconds()).padStart(2, '0');
-            document.getElementById('liveClock').textContent = `${hours}:${minutes}:${seconds}`;
-        }
-
-        setInterval(updateClock, 1000); // Update the clock every second
-        updateClock(); // Call immediately to set the time without waiting for the first second
-    </script>
-
 </body>
 
 </html>
