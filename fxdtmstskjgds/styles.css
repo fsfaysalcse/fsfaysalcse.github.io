@@ -1,4 +1,7 @@
-body, h1, h2, h5 {
+body,
+h1,
+h2,
+h5 {
     font-family: 'Product Sans', sans-serif;
 }
 
@@ -9,7 +12,7 @@ body, h1, h2, h5 {
     height: 100%;
     width: 100%;
     z-index: -1;
-    background-image: url('https://images.unsplash.com/photo-1647686543959-fb1974055cd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2874&q=80');
+    background-image: url('https://images.unsplash.com/photo-1579603263858-4c7a3743fa1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -18,8 +21,8 @@ body, h1, h2, h5 {
 .main-title {
     font-size: 3em;
     font-weight: 700;
-    color: #333;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(88, 86, 86, 0.5);
 }
 
 .powered-by-section {
@@ -33,7 +36,8 @@ body, h1, h2, h5 {
 }
 
 #liveClock {
-    font-size: 1.5rem;  /* Adjust the size as per your preference */
+    font-size: 1.5rem;
+    /* Adjust the size as per your preference */
     color: rgb(240, 87, 87);
 }
 
@@ -50,3 +54,4 @@ body, h1, h2, h5 {
 .font-weight-bold {
     color: #FBBA00;
 }
+

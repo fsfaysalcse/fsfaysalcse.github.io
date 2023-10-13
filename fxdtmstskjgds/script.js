@@ -1,8 +1,8 @@
 const SUPABASE_URL = 'https://kpgtveetxxemulgdwvkj.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtwZ3R2ZWV0eHhlbXVsZ2R3dmtqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTMyNTQxMDcsImV4cCI6MjAwODgzMDEwN30.rrjlztQpV6ZM5XYLbcgBN5TjdoUS2JUX7z-EVq6UO_Q';
 
-const EVENT_ID = '6'; // Replace with your static event_id
-const staticParticipantCount = 13369;
+const EVENT_ID = '7'; // Replace with your static event_id
+const staticParticipantCount = 9853;
 
 const headers = {
     'apikey': SUPABASE_ANON_KEY,
@@ -34,7 +34,7 @@ function animateValue(id, start, end, duration) {
     run();
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
     let participantCount = 0;
     let checkoutCount = 0;
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error("Error setting static participant info:", error);
         }
     }
-    
+
     async function getCheckoutCount() {
         try {
             let response = await fetch(`${SUPABASE_URL}/rest/v1/checkout?select=count&event_id=eq.${EVENT_ID}`, { headers: headers });
@@ -79,32 +79,47 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function updateTimer() {
-    const startTime = new Date('2023-10-12 12:00:00 PM');
-    const endTime = new Date('2023-10-13 09:00:00 PM');
+    // Convert "YYYY-MM-DD HH:MM:SS AM/PM" to a Date object
+    function createDate(y, m, d, hour, min, sec, meridian) {
+        if (meridian.toLowerCase() === 'pm' && hour !== 12) {
+            hour += 12;
+        } else if (meridian.toLowerCase() === 'am' && hour === 12) {
+            hour = 0;
+        }
+        return new Date(y, m - 1, d, hour, min, sec);
+    }
+
+    const startTime = createDate(2023, 10, 14, 10, 0, 0, 'AM');
+    const endTime = createDate(2023, 10, 15, 7, 0, 0, 'PM');
     let now = new Date();
 
-    // If current time is before the start time, set "now" to start time
+    let timeDifference;
+
     if (now < startTime) {
-        now = startTime;
-    }
-
-    let timeDifference = endTime - now;
-
-    if (timeDifference < 0) {
+        timeDifference = startTime - now;
+        displayTime("REPC Kickoff In:", timeDifference);
+    } else if (now >= startTime && now < endTime) {
+        timeDifference = endTime - now;
+        displayTime("", timeDifference);
+    } else {
         // If the event is over
         document.getElementById('liveClock').textContent = "REPC ENDED";
-    } else {
-        let hours = Math.floor(timeDifference / (1000 * 60 * 60));
-        timeDifference -= hours * (1000 * 60 * 60);
-
-        let minutes = Math.floor(timeDifference / (1000 * 60));
-        timeDifference -= minutes * (1000 * 60);
-
-        let seconds = Math.floor(timeDifference / 1000);
-
-        document.getElementById('liveClock').textContent = `${String(hours).padStart(2, '0')}h : ${String(minutes).padStart(2, '0')}m : ${String(seconds).padStart(2, '0')}s Remaining`;
     }
 }
+
+function displayTime(prefix, timeDifference) {
+    let hours = Math.floor(timeDifference / (1000 * 60 * 60));
+    timeDifference -= hours * (1000 * 60 * 60);
+
+    let minutes = Math.floor(timeDifference / (1000 * 60));
+    timeDifference -= minutes * (1000 * 60);
+
+    let seconds = Math.floor(timeDifference / 1000);
+
+    document.getElementById('liveClock').textContent = `${prefix} ${String(hours).padStart(2, '0')}h : ${String(minutes).padStart(2, '0')}m : ${String(seconds).padStart(2, '0')}s`;
+}
+
+
 
 setInterval(updateTimer, 1000); // Update the timer every second
 updateTimer(); // Call immediately to set the time without waiting for the first second
