@@ -89,8 +89,8 @@ function updateTimer() {
         return new Date(y, m - 1, d, hour, min, sec);
     }
 
-    const startTime = createDate(2023, 10, 14, 10, 0, 0, 'AM');
-    const endTime = createDate(2023, 10, 15, 7, 0, 0, 'PM');
+    const startTime = createDate(2023, 10, 20, 10, 0, 0, 'AM');
+    const endTime = createDate(2023, 10, 23, 7, 0, 0, 'PM');
     let now = new Date();
 
     let timeDifference;
