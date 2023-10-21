@@ -1,8 +1,8 @@
 const SUPABASE_URL = 'https://kpgtveetxxemulgdwvkj.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtwZ3R2ZWV0eHhlbXVsZ2R3dmtqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTcyMDU4OTUsImV4cCI6MjAxMjc4MTg5NX0.4icDk-c1rH7SpH2SUpgkDOab5PhyiN0zuqskSzcH-mU';
 
-const EVENT_ID = '7'; // Replace with your static event_id
-const staticParticipantCount = 9867;
+const EVENT_ID = '8'; // Replace with your static event_id
+const staticParticipantCount = 3273;
 
 const headers = {
     'apikey': SUPABASE_ANON_KEY,
