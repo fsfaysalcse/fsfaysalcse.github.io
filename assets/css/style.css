@@ -38,6 +38,59 @@ h6 {
   font-family: 'Poppins', sans-serif;
 }
 
+
+/*--------------------------------------------------------------
+# Project CSS
+--------------------------------------------------------------*/
+
+
+.section-title h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  height: 200px; /* Adjust height as needed */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.card-text {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.text-muted {
+  font-size: 14px;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .card-img-top {
+    height: auto;
+  }
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
