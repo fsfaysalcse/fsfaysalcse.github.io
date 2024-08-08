@@ -38,6 +38,22 @@ h6 {
   font-family: 'Poppins', sans-serif;
 }
 
+.custom-btn {
+  border: 2px dashed #000000;
+  color: #000000;
+  padding: 10px 30px;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-radius: 65px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #ffffff;
+  color: #4CAF50;
+}
+
 
 /*--------------------------------------------------------------
 # Project CSS
