@@ -307,20 +307,46 @@ h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+/* Hero Section Styling */
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/cover-bg.jpg") top right no-repeat;
-  background-size: cover;
   position: relative;
+  overflow: hidden;
+  padding-left: 0; /* Reset padding initially */
+  background: none; /* Remove existing background image */
 }
 
-@media (min-width: 992px) {
-  #hero {
-    padding-left: 160px;
-  }
+#hero .video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background: url("assets/img/cover-bg.jpg") top right no-repeat; /* Fallback Image */
+  background-size: cover;
 }
 
+#hero .video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#hero .video-background img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#hero .video-background:empty img {
+  display: block;
+}
+
+/* Overlay Styling */
 #hero:before {
   content: "";
   background: rgba(255, 255, 255, 0.8);
@@ -329,6 +355,14 @@ h6 {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 0; /* Ensure the overlay is behind content but above the video */
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 992px) {
+  #hero {
+    padding-left: 160px;
+  }
 }
 
 #hero h1 {
