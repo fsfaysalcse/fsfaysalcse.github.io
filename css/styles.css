@@ -1581,7 +1581,7 @@ hr.fancy::before {
  * -------------------------------------------------------------------- */
 .lead,
 .attention-getter {
-  font-family: var(--font-1);
+  font-family: "Ubuntu", sans-serif;
   font-weight: 300;
   font-size: var(--text-md);
   line-height: var(--vspace-1_25);
